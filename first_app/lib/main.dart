@@ -1,37 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'package:first_app/gradientContainer.dart';
+
+// in dart we cant write or execute code in the (global scope)
+// we have to put them inside of functions body
+// this function must be main (first thing called by dart)
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+// 1 must be in all flutter apps
+// we need to import it ()
+// MaterialApp() is a constructor of class that extends Widget or it is a widget
+  runApp(
+    const  MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('First App'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Hello World!',
-              ),
-              Text(
-                'It\'s time to learn Flutter!',
-              ),
-            ],
-          ),
-        ),
+        // backgroundColor: Color.fromARGB(255, 68, 39, 117),
+        body: GradientContainer()
       ),
-    );
-  }
+    ),
+  );
 }
+
+
