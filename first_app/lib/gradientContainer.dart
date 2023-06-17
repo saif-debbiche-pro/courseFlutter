@@ -1,24 +1,34 @@
+import 'package:first_app/dice_roller.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/styledText.dart';
 
+class GradientContainer extends StatelessWidget {
+const GradientContainer(this.colorStart, this.colorEnd, {super.key});
+
+  // we can add more constructors just like that
+  GradientContainer.atherConstructor({super.key})
+      : colorStart = Color.fromARGB(255, 52, 52, 255),
+        colorEnd = Color.fromARGB(255, 52, 180, 255);
+  // this is something related with dart the language we use and we call that constructor like that
+  // GradientContainer.atherConstructor();
+  final Color colorStart;
+  final Color colorEnd;
+  
 
 
 
-class GradientContainer extends StatelessWidget{
-  const GradientContainer({super.key});
   @override
-  Widget build(context){
+  Widget build(context) {
     return Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors:[Color.fromARGB(255,26,2,80),Color.fromARGB(255,45,7,98)],
-              begin:Alignment.topLeft,
-              end:Alignment.bottomRight
-            ),
-          ),
-          child:const Center(
-            child:StyledText()
-          ),
-        );
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [colorStart, colorEnd],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight),
+      ),
+      child: Center(
+          child: DiceRoller()
+    )
+    );
   }
-  }
+}
